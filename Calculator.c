@@ -21,7 +21,7 @@ int main() {
     // Taking the second number as an input from the user
 
     double y;
-    printf("Enter the second digit: ");
+    printf("Enter the second number: ");
     scanf("%lf", &y);
 
     double result;
