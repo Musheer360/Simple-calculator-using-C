@@ -1,55 +1,67 @@
-// Simple calculator project in C
-// Included math.h because C doesn't support modulus between double/float values
-
-# include <stdio.h>
-# include <math.h>
+#include <stdio.h>
+#include <math.h>
 
 int main() {
 
-    // Taking the first number as an input from the user
+char ch;
+double x;
+char operator;
+double y;
+double result;
+int quotient;
 
-    double x;
-    printf("Enter the first number: ");
+print:
+    printf("\nEnter the first number: ");
     scanf("%lf", &x);
 
-    // Taking the operator as an input from the user as +, -, *, x, /, r (for remainder) and q (for quotient)
-
-    char operator;
-    printf("Enter the operator: ");
+    printf("\nOperator: ");
     scanf("%s", &operator);
-    
-    // Taking the second number as an input from the user
 
-    double y;
-    printf("Enter the second number: ");
+    printf("\nEnter the second number: ");
     scanf("%lf", &y);
-
-    double result;
-    int quotient;
 
     switch(operator) {
         case '+' : result = x + y;
-        printf("Result: %lf", result);
+        printf("\nResult: %lf\n", result);
                 break;
         case '-' : result = x - y;
-        printf("Result: %lf", result);
+        printf("\nResult: %lf\n", result);
                 break;
         case 'x' : result = x * y;
-        printf("Result: %lf", result);
+        printf("\nResult: %lf\n", result);
                 break;
         case '*' : result = x * y;
-        printf("Result: %lf", result);
+        printf("\nResult: %lf\n", result);
                 break;
         case '/' : result = x / y;
-        printf("Result: %lf", result);
+        printf("\nResult: %lf\n", result);
                 break;
         case 'r' : result = fmod(x, y);
-        printf("Result: %lf", result);
+        printf("\nResult: %lf\n", result);
                 break;
         case 'q' : quotient = x / y;
-        printf("Result: %d", quotient);
+        printf("\nResult: %d\n", quotient);
                 break;
-        default : printf("Please enter a valid operator!");
+        default : printf("\nCannot display result!\nPlease enter a valid operator!");
+    }
+
+again:
+    printf ("\nDo you want to repeat the operation? (Y/N) ");
+    scanf (" %c", &ch);
+
+    if(ch == 'y' || ch == 'Y') {
+        goto print;
+    }
+    
+    else if(ch == 'n' || ch == 'N') {
+        printf("\nExiting the program...\n");
+        printf("\nDone!\n\n");
+        return 0;
+    }
+    
+    else {
+        printf("\nPlease enter Yes or No!\n");
+        goto again;
     }
 
     return 0;
