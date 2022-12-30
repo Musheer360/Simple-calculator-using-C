@@ -4,8 +4,12 @@ using namespace std;
 int main() {
     int x, y;
     char op;
+    char ch;
 
-    cout << "Enter first number: ";
+    cout << "\nSIMPLE CALCULATOR\n";
+
+print:
+    cout << "\nEnter first number: ";
     cin >> x;
 
     cout << "Enter Operator: ";
@@ -16,26 +20,47 @@ int main() {
 
     switch (op) {
         case '+':
-            cout << "Result: " << x + y << endl;
+            cout << "\nResult: " << x + y << endl;
             break;
         case '-':
-            cout << "Result: " << x - y << endl;
+            cout << "\nResult: " << x - y << endl;
             break;
         case '*':
-            cout << "Result: " << x * y << endl;
+            cout << "\nResult: " << x * y << endl;
+            break;
+        case 'x':
+            cout << "\nResult: " << x * y << endl;
             break;
         case '/':
-            cout << "Result: " << x / y << endl;
+            cout << "\nResult: " << x / y << endl;
             break;
         case '%':
-            cout << "Result: " << x % y << endl;
+            cout << "\nResult: " << x % y << endl;
             break;
         case 'q':
-            cout << "Result: " << x / y << endl;
+            cout << "\nResult: " << x / y << endl;
             break;
         default:
-            cout << "Invalid operator" << endl;
+            cout << "\n\nCannot display result!\nPlease enter a valid operator!" << endl;
     }
 
-    return 0;
+again:
+    cout << "\nDo you want to repeat this operation? (Y/N) ";
+    cin >> ch;
+
+    if(ch == 'Y' || ch == 'y') {
+        goto print;
+    }
+
+    else if(ch == 'N' || ch == 'n') {
+        cout << "\nExiting the program..." << endl;
+        cout << "Done!\n" << endl;
+        return 0;
+    }
+
+    else {
+        cout << "\nPlease enter 'Y' or 'N'";
+        goto again;
+    }
+
 }
